@@ -20,7 +20,6 @@ class Player(Sprite):
         self.speed = 300
 
     def screen_constraint(self):
-        print(self.rect.topleft)
         if self.position.x > (WINDOW_WIDTH - self.image.get_width()):
             self.position.x = (WINDOW_WIDTH - self.image.get_width())
         if self.position.x < 0:
@@ -37,6 +36,7 @@ class Player(Sprite):
 
     def update(self, dt):
         self.input()
-        self.screen_constraint()
         self.position.x += self.direction.x * self.speed * dt
         self.rect.x = round(self.position.x)
+        self.screen_constraint()
+
